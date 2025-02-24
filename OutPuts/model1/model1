@@ -1,129 +1,65 @@
-2025-02-23 16:51:27,329 - INFO - ======== Starting Model Training ========
-2025-02-23 16:51:27,329 - INFO - Loading dataset...
-2025-02-23 16:51:27,913 - INFO - Dataset loaded successfully!
-2025-02-23 16:51:27,913 - INFO - Initializing the model...
-2025-02-23 16:51:27,972 - INFO - Model initialized with 1,077,445 trainable parameters.
-2025-02-23 16:51:27,973 - INFO - Model Architecture: 
-MobileNetV2ForCIFAR8M(
-  (mobilenet_v2): MobileNetV2(
-    (features): Sequential(
-      (0): Conv2dNormActivation(
-        (0): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
-        (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        (2): ReLU6(inplace=True)
-      )
-      (1): InvertedResidual(
-        (conv): Sequential(
-          (0): Conv2dNormActivation(
-            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
-            (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-            (2): ReLU6(inplace=True)
-          )
-          (1): Conv2d(32, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
-          (2): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        )
-      )
-      (2): InvertedResidual(
-        (conv): Sequential(
-          (0): Conv2dNormActivation(
-            (0): Conv2d(16, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
-            (1): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-            (2): ReLU6(inplace=True)
-          )
-          (1): Conv2dNormActivation(
-            (0): Conv2d(96, 96, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=96, bias=False)
-            (1): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-            (2): ReLU6(inplace=True)
-          )
-          (2): Conv2d(96, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
-          (3): BatchNorm2d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        )
-      )
-      (3): InvertedResidual(
-        (conv): Sequential(
-          (0): Conv2dNormActivation(
-            (0): Conv2d(24, 144, kernel_size=(1, 1), stride=(1, 1), bias=False)
-            (1): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-            (2): ReLU6(inplace=True)
-          )
-          (1): Conv2dNormActivation(
-            (0): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=144, bias=False)
-            (1): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-            (2): ReLU6(inplace=True)
-          )
-          (2): Conv2d(144, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
-          (3): BatchNorm2d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        )
-      )
-      (4): InvertedResidual(
-        (conv): Sequential(
-          (0): Conv2dNormActivation(
-            (0): Conv2d(24, 144, kernel_size=(1, 1), stride=(1, 1), bias=False)
-            (1): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-            (2): ReLU6(inplace=True)
-          )
-          (1): Conv2dNormActivation(
-            (0): Conv2d(144, 144, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=144, bias=False)
-            (1): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-            (2): ReLU6(inplace=True)
-          )
-          (2): Conv2d(144, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
-          (3): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        )
-      )
-    )
-    (classifier): Sequential(
-      (0): Flatten(start_dim=1, end_dim=-1)
-      (1): Linear(in_features=2048, out_features=512, bias=True)
-      (2): ReLU()
-      (3): Dropout(p=0.9, inplace=False)
-      (4): Linear(in_features=512, out_features=5, bias=True)
-    )
+2025-02-24 09:06:32,563 - INFO - ======== Starting Model Training ========
+2025-02-24 09:06:32,564 - INFO - Loading dataset...
+2025-02-24 09:06:33,321 - INFO - Dataset loaded successfully!
+2025-02-24 09:06:33,321 - INFO - Initializing the model...
+2025-02-24 09:06:33,410 - INFO - Model initialized with 6,270,592 trainable parameters.
+2025-02-24 09:06:33,411 - INFO - Model Architecture: 
+CNNModel(
+  (features): ModuleDict(
+    (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu1): ReLU()
+    (conv2): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu2): ReLU()
+    (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (conv3): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu3): ReLU()
+    (pool3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (conv4): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu4): ReLU()
+    (pool4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (conv5): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu5): ReLU()
+    (pool5): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (conv6): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu6): ReLU()
+    (pool6): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
   )
+  (fc): ModuleDict()
+  (dropout): Dropout(p=0.3, inplace=False)
 )
-2025-02-23 16:51:27,974 - INFO - Starting training for 40 epochs...
-2025-02-23 16:51:28,599 - INFO - Tr_Loss: 1.5954, val_loss: 1.4491, Tr_acc: 26.68752793920429, val_ac: 45.625
-2025-02-23 16:51:28,918 - INFO - Tr_Loss: 1.3989, val_loss: 1.3301, Tr_acc: 42.19937416182387, val_ac: 50.833333333333336
-2025-02-23 16:51:29,236 - INFO - Tr_Loss: 1.2846, val_loss: 1.2449, Tr_acc: 49.17299955297273, val_ac: 54.0625
-2025-02-23 16:51:29,553 - INFO - Tr_Loss: 1.1890, val_loss: 1.1807, Tr_acc: 53.33035315154224, val_ac: 55.833333333333336
-2025-02-23 16:51:29,866 - INFO - Tr_Loss: 1.0985, val_loss: 1.1294, Tr_acc: 57.845328565042465, val_ac: 59.0625
-2025-02-23 16:51:30,170 - INFO - Tr_Loss: 1.0511, val_loss: 1.0882, Tr_acc: 60.303978542691105, val_ac: 60.208333333333336
-2025-02-23 16:51:30,489 - INFO - Tr_Loss: 0.9970, val_loss: 1.0558, Tr_acc: 62.583817612874384, val_ac: 61.666666666666664
-2025-02-23 16:51:30,811 - INFO - Tr_Loss: 0.9568, val_loss: 1.0286, Tr_acc: 64.64014304872597, val_ac: 63.4375
-2025-02-23 16:51:31,136 - INFO - Tr_Loss: 0.9010, val_loss: 1.0034, Tr_acc: 68.61868573983013, val_ac: 64.27083333333333
-2025-02-23 16:51:31,468 - INFO - Tr_Loss: 0.8605, val_loss: 0.9837, Tr_acc: 69.46803755029057, val_ac: 64.6875
-2025-02-23 16:51:31,805 - INFO - Tr_Loss: 0.8245, val_loss: 0.9662, Tr_acc: 71.21144389807779, val_ac: 65.10416666666667
-2025-02-23 16:51:32,113 - INFO - Tr_Loss: 0.7950, val_loss: 0.9530, Tr_acc: 71.7925793473402, val_ac: 65.83333333333333
-2025-02-23 16:51:32,430 - INFO - Tr_Loss: 0.7621, val_loss: 0.9396, Tr_acc: 72.46312025033527, val_ac: 66.5625
-2025-02-23 16:51:32,731 - INFO - Tr_Loss: 0.7374, val_loss: 0.9328, Tr_acc: 74.74295932051855, val_ac: 66.14583333333333
-2025-02-23 16:51:33,040 - INFO - Tr_Loss: 0.7106, val_loss: 0.9237, Tr_acc: 74.83236477425123, val_ac: 66.5625
-2025-02-23 16:51:33,340 - INFO - Tr_Loss: 0.6823, val_loss: 0.9150, Tr_acc: 76.84398748323648, val_ac: 66.97916666666667
-2025-02-23 16:51:33,640 - INFO - Tr_Loss: 0.6513, val_loss: 0.9072, Tr_acc: 77.51452838623156, val_ac: 67.5
-2025-02-23 16:51:33,940 - INFO - Tr_Loss: 0.6321, val_loss: 0.9001, Tr_acc: 78.54269110415736, val_ac: 67.8125
-2025-02-23 16:51:34,246 - INFO - Tr_Loss: 0.6028, val_loss: 0.8955, Tr_acc: 80.64371926687528, val_ac: 67.70833333333333
-2025-02-23 16:51:34,547 - INFO - Tr_Loss: 0.5799, val_loss: 0.8948, Tr_acc: 80.50961108627627, val_ac: 68.22916666666667
-2025-02-23 16:51:34,851 - INFO - Tr_Loss: 0.5630, val_loss: 0.8938, Tr_acc: 80.91193562807331, val_ac: 68.125
-2025-02-23 16:51:35,149 - INFO - Tr_Loss: 0.5183, val_loss: 0.8923, Tr_acc: 82.56593652212786, val_ac: 68.22916666666667
-2025-02-23 16:51:35,447 - INFO - Tr_Loss: 0.5153, val_loss: 0.8874, Tr_acc: 83.772910147519, val_ac: 68.02083333333333
-2025-02-23 16:51:35,754 - INFO - Tr_Loss: 0.4794, val_loss: 0.8880, Tr_acc: 84.97988377291014, val_ac: 68.54166666666667
-2025-02-23 16:51:36,055 - INFO - Tr_Loss: 0.4659, val_loss: 0.8905, Tr_acc: 84.84577559231113, val_ac: 68.54166666666667
-2025-02-23 16:51:36,354 - INFO - Tr_Loss: 0.4549, val_loss: 0.8881, Tr_acc: 85.06928922664282, val_ac: 68.95833333333333
-2025-02-23 16:51:36,654 - INFO - Tr_Loss: 0.4394, val_loss: 0.8876, Tr_acc: 86.45507375949933, val_ac: 69.16666666666667
-2025-02-23 16:51:36,949 - INFO - Tr_Loss: 0.4122, val_loss: 0.8854, Tr_acc: 87.30442556995976, val_ac: 68.75
-2025-02-23 16:51:37,238 - INFO - Tr_Loss: 0.4150, val_loss: 0.8879, Tr_acc: 86.7679928475637, val_ac: 69.0625
-2025-02-23 16:51:37,543 - INFO - Tr_Loss: 0.3803, val_loss: 0.8911, Tr_acc: 88.42199374161824, val_ac: 68.64583333333333
-2025-02-23 16:51:37,843 - INFO - Tr_Loss: 0.3643, val_loss: 0.8931, Tr_acc: 88.8243182834153, val_ac: 69.16666666666667
-2025-02-23 16:51:38,159 - INFO - Tr_Loss: 0.3724, val_loss: 0.8886, Tr_acc: 88.3772910147519, val_ac: 69.16666666666667
-2025-02-23 16:51:38,459 - INFO - Tr_Loss: 0.3458, val_loss: 0.9000, Tr_acc: 89.00312919088064, val_ac: 69.47916666666667
-2025-02-23 16:51:38,752 - INFO - Tr_Loss: 0.3278, val_loss: 0.9045, Tr_acc: 89.67367009387573, val_ac: 69.6875
-2025-02-23 16:51:39,044 - INFO - Tr_Loss: 0.2929, val_loss: 0.9097, Tr_acc: 92.35583370585606, val_ac: 69.47916666666667
-2025-02-23 16:51:39,355 - INFO - Tr_Loss: 0.2860, val_loss: 0.9100, Tr_acc: 91.72999552972732, val_ac: 69.27083333333333
-2025-02-23 16:51:39,658 - INFO - Tr_Loss: 0.2873, val_loss: 0.9162, Tr_acc: 91.37237371479661, val_ac: 69.47916666666667
-2025-02-23 16:51:39,957 - INFO - Tr_Loss: 0.2879, val_loss: 0.9166, Tr_acc: 91.14886008046491, val_ac: 69.6875
-2025-02-23 16:51:40,260 - INFO - Tr_Loss: 0.2677, val_loss: 0.9195, Tr_acc: 92.40053643272239, val_ac: 69.375
-2025-02-23 16:51:40,562 - INFO - Tr_Loss: 0.2561, val_loss: 0.9256, Tr_acc: 92.66875279392043, val_ac: 69.375
-2025-02-23 16:51:40,562 - INFO - Saving trained model and training results...
-2025-02-23 16:51:40,835 - INFO - Starting model evaluation...
-2025-02-23 16:51:40,855 - INFO - Test Loss: 0.6131
-2025-02-23 16:51:40,855 - INFO - Test Accuracy: 76.00%
-2025-02-23 16:51:40,855 - INFO - ======== Model Training Completed! ========
+2025-02-24 09:06:33,412 - INFO - Starting training for 30 epochs...
+2025-02-24 09:06:36,454 - INFO - Tr_Loss: 1.5968, val_loss: 1.5882, Tr_acc: 23.60882449785973, val_ac: 27.5
+2025-02-24 09:06:39,241 - INFO - Tr_Loss: 1.5510, val_loss: 1.5857, Tr_acc: 28.054000658544616, val_ac: 29.375
+2025-02-24 09:06:42,021 - INFO - Tr_Loss: 1.5152, val_loss: 1.4699, Tr_acc: 31.840632202831742, val_ac: 36.25
+2025-02-24 09:06:44,800 - INFO - Tr_Loss: 1.4927, val_loss: 1.4929, Tr_acc: 33.256503128086926, val_ac: 32.5
+2025-02-24 09:06:47,579 - INFO - Tr_Loss: 1.4710, val_loss: 1.3870, Tr_acc: 34.705301284162005, val_ac: 36.25
+2025-02-24 09:06:50,361 - INFO - Tr_Loss: 1.4404, val_loss: 1.3063, Tr_acc: 35.16628251564043, val_ac: 46.25
+2025-02-24 09:06:53,138 - INFO - Tr_Loss: 1.4126, val_loss: 1.2979, Tr_acc: 37.83338821205137, val_ac: 44.375
+2025-02-24 09:06:55,919 - INFO - Tr_Loss: 1.3973, val_loss: 1.2892, Tr_acc: 40.335857754362856, val_ac: 41.875
+2025-02-24 09:06:58,699 - INFO - Tr_Loss: 1.3666, val_loss: 1.2597, Tr_acc: 40.69805729338162, val_ac: 50.625
+2025-02-24 09:07:01,482 - INFO - Tr_Loss: 1.3377, val_loss: 1.2495, Tr_acc: 43.36516298979256, val_ac: 51.875
+2025-02-24 09:07:04,262 - INFO - Tr_Loss: 1.3188, val_loss: 1.2235, Tr_acc: 45.70299637800461, val_ac: 51.875
+2025-02-24 09:07:07,037 - INFO - Tr_Loss: 1.2977, val_loss: 1.2163, Tr_acc: 46.06519591702338, val_ac: 53.75
+2025-02-24 09:07:09,822 - INFO - Tr_Loss: 1.2839, val_loss: 1.1961, Tr_acc: 46.987158379980244, val_ac: 52.5
+2025-02-24 09:07:12,602 - INFO - Tr_Loss: 1.2605, val_loss: 1.1502, Tr_acc: 47.810339150477446, val_ac: 55.0
+2025-02-24 09:07:15,384 - INFO - Tr_Loss: 1.2637, val_loss: 1.1549, Tr_acc: 48.23839315113599, val_ac: 51.875
+2025-02-24 09:07:18,171 - INFO - Tr_Loss: 1.2161, val_loss: 1.1438, Tr_acc: 51.36648007902535, val_ac: 50.625
+2025-02-24 09:07:20,957 - INFO - Tr_Loss: 1.2055, val_loss: 1.1434, Tr_acc: 51.59697069476457, val_ac: 55.0
+2025-02-24 09:07:23,742 - INFO - Tr_Loss: 1.1860, val_loss: 1.1255, Tr_acc: 52.420151465261775, val_ac: 53.75
+2025-02-24 09:07:26,524 - INFO - Tr_Loss: 1.1354, val_loss: 1.1221, Tr_acc: 54.36285808363517, val_ac: 56.25
+2025-02-24 09:07:29,305 - INFO - Tr_Loss: 1.1331, val_loss: 1.0890, Tr_acc: 55.31774777741192, val_ac: 59.375
+2025-02-24 09:07:32,092 - INFO - Tr_Loss: 1.0932, val_loss: 1.1152, Tr_acc: 57.886071781363185, val_ac: 56.875
+2025-02-24 09:07:34,878 - INFO - Tr_Loss: 1.0856, val_loss: 1.0524, Tr_acc: 57.32630885742509, val_ac: 58.75
+2025-02-24 09:07:37,664 - INFO - Tr_Loss: 1.0456, val_loss: 1.0613, Tr_acc: 58.215344089562066, val_ac: 61.25
+2025-02-24 09:07:40,450 - INFO - Tr_Loss: 1.0176, val_loss: 1.0321, Tr_acc: 59.927560092196245, val_ac: 60.625
+2025-02-24 09:07:43,232 - INFO - Tr_Loss: 0.9954, val_loss: 1.0783, Tr_acc: 60.55317747777412, val_ac: 56.875
+2025-02-24 09:07:46,018 - INFO - Tr_Loss: 0.9649, val_loss: 1.0784, Tr_acc: 62.59466578860718, val_ac: 58.75
+2025-02-24 09:07:48,800 - INFO - Tr_Loss: 0.9466, val_loss: 1.1138, Tr_acc: 63.81297332894304, val_ac: 58.75
+2025-02-24 09:07:51,587 - INFO - Tr_Loss: 0.9415, val_loss: 1.1067, Tr_acc: 64.37273625288114, val_ac: 60.0
+2025-02-24 09:07:54,371 - INFO - Tr_Loss: 0.9068, val_loss: 1.1490, Tr_acc: 65.82153440895621, val_ac: 58.75
+2025-02-24 09:07:57,154 - INFO - Tr_Loss: 0.8769, val_loss: 1.1191, Tr_acc: 66.24958840961474, val_ac: 56.875
+2025-02-24 09:07:57,155 - INFO - Saving trained model and training results...
+2025-02-24 09:07:57,585 - INFO - Starting model evaluation...
+2025-02-24 09:07:57,669 - INFO - Test Loss: 1.0686
+2025-02-24 09:07:57,669 - INFO - Test Accuracy: 59.20%
+2025-02-24 09:07:57,669 - INFO - ======== Model Training Completed! ========

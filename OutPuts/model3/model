@@ -1,189 +1,31 @@
-2025-02-23 17:21:58,109 - INFO - ======== Starting Model Training ========
-2025-02-23 17:21:58,109 - INFO - Loading dataset...
-2025-02-23 17:21:58,713 - INFO - Dataset loaded successfully!
-2025-02-23 17:21:58,713 - INFO - Initializing the model...
-2025-02-23 17:21:58,773 - INFO - Model initialized with 1,077,445 trainable parameters.
-2025-02-23 17:21:58,774 - INFO - Model Architecture: 
-MobileNetV2ForCIFAR8M(
-  (mobilenet_v2): MobileNetV2(
-    (features): Sequential(
-      (0): Conv2dNormActivation(
-        (0): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
-        (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        (2): ReLU6(inplace=True)
-      )
-      (1): InvertedResidual(
-        (conv): Sequential(
-          (0): Conv2dNormActivation(
-            (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
-            (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-            (2): ReLU6(inplace=True)
-          )
-          (1): Conv2d(32, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
-          (2): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        )
-      )
-      (2): InvertedResidual(
-        (conv): Sequential(
-          (0): Conv2dNormActivation(
-            (0): Conv2d(16, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
-            (1): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-            (2): ReLU6(inplace=True)
-          )
-          (1): Conv2dNormActivation(
-            (0): Conv2d(96, 96, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=96, bias=False)
-            (1): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-            (2): ReLU6(inplace=True)
-          )
-          (2): Conv2d(96, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
-          (3): BatchNorm2d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        )
-      )
-      (3): InvertedResidual(
-        (conv): Sequential(
-          (0): Conv2dNormActivation(
-            (0): Conv2d(24, 144, kernel_size=(1, 1), stride=(1, 1), bias=False)
-            (1): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-            (2): ReLU6(inplace=True)
-          )
-          (1): Conv2dNormActivation(
-            (0): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=144, bias=False)
-            (1): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-            (2): ReLU6(inplace=True)
-          )
-          (2): Conv2d(144, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
-          (3): BatchNorm2d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        )
-      )
-      (4): InvertedResidual(
-        (conv): Sequential(
-          (0): Conv2dNormActivation(
-            (0): Conv2d(24, 144, kernel_size=(1, 1), stride=(1, 1), bias=False)
-            (1): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-            (2): ReLU6(inplace=True)
-          )
-          (1): Conv2dNormActivation(
-            (0): Conv2d(144, 144, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=144, bias=False)
-            (1): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-            (2): ReLU6(inplace=True)
-          )
-          (2): Conv2d(144, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
-          (3): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        )
-      )
-    )
-    (classifier): Sequential(
-      (0): Flatten(start_dim=1, end_dim=-1)
-      (1): Linear(in_features=2048, out_features=512, bias=True)
-      (2): ReLU()
-      (3): Dropout(p=0.5, inplace=False)
-      (4): Linear(in_features=512, out_features=5, bias=True)
-    )
+2025-02-24 09:05:57,814 - INFO - ======== Starting Model Training ========
+2025-02-24 09:05:57,815 - INFO - Loading dataset...
+2025-02-24 09:05:58,568 - INFO - Dataset loaded successfully!
+2025-02-24 09:05:58,569 - INFO - Initializing the model...
+2025-02-24 09:05:58,644 - INFO - Model initialized with 6,270,592 trainable parameters.
+2025-02-24 09:05:58,644 - INFO - Model Architecture: 
+CNNModel(
+  (features): ModuleDict(
+    (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu1): ReLU()
+    (conv2): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu2): ReLU()
+    (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (conv3): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu3): ReLU()
+    (pool3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (conv4): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu4): ReLU()
+    (pool4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (conv5): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu5): ReLU()
+    (pool5): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (conv6): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu6): ReLU()
+    (pool6): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
   )
+  (fc): ModuleDict()
+  (dropout): Dropout(p=0.55, inplace=False)
 )
-2025-02-23 17:21:58,774 - INFO - Starting training for 100 epochs...
-2025-02-23 17:21:59,420 - INFO - Tr_Loss: 1.6173, val_loss: 1.5892, Tr_acc: 20.424403183023873, val_ac: 24.432989690721648
-2025-02-23 17:21:59,755 - INFO - Tr_Loss: 1.5772, val_loss: 1.5575, Tr_acc: 27.144120247568523, val_ac: 32.06185567010309
-2025-02-23 17:22:00,083 - INFO - Tr_Loss: 1.5333, val_loss: 1.5283, Tr_acc: 36.251105216622456, val_ac: 36.49484536082474
-2025-02-23 17:22:00,407 - INFO - Tr_Loss: 1.4998, val_loss: 1.5003, Tr_acc: 38.94783377541998, val_ac: 41.23711340206186
-2025-02-23 17:22:00,744 - INFO - Tr_Loss: 1.4630, val_loss: 1.4741, Tr_acc: 42.35190097259063, val_ac: 43.402061855670105
-2025-02-23 17:22:01,070 - INFO - Tr_Loss: 1.4351, val_loss: 1.4490, Tr_acc: 45.57913351016799, val_ac: 45.36082474226804
-2025-02-23 17:22:01,407 - INFO - Tr_Loss: 1.4018, val_loss: 1.4253, Tr_acc: 47.656940760389034, val_ac: 47.422680412371136
-2025-02-23 17:22:01,743 - INFO - Tr_Loss: 1.3669, val_loss: 1.4028, Tr_acc: 50.08841732979664, val_ac: 48.144329896907216
-2025-02-23 17:22:02,078 - INFO - Tr_Loss: 1.3406, val_loss: 1.3820, Tr_acc: 51.67992926613616, val_ac: 49.381443298969074
-2025-02-23 17:22:02,407 - INFO - Tr_Loss: 1.3189, val_loss: 1.3627, Tr_acc: 53.315649867374006, val_ac: 50.41237113402062
-2025-02-23 17:22:02,723 - INFO - Tr_Loss: 1.2903, val_loss: 1.3445, Tr_acc: 54.90716180371353, val_ac: 50.20618556701031
-2025-02-23 17:22:03,050 - INFO - Tr_Loss: 1.2681, val_loss: 1.3274, Tr_acc: 56.01237842617153, val_ac: 50.824742268041234
-2025-02-23 17:22:03,372 - INFO - Tr_Loss: 1.2483, val_loss: 1.3112, Tr_acc: 56.49867374005305, val_ac: 51.34020618556701
-2025-02-23 17:22:03,685 - INFO - Tr_Loss: 1.2168, val_loss: 1.2956, Tr_acc: 59.681697612732094, val_ac: 52.2680412371134
-2025-02-23 17:22:04,005 - INFO - Tr_Loss: 1.2021, val_loss: 1.2810, Tr_acc: 60.698496905393455, val_ac: 52.88659793814433
-2025-02-23 17:22:04,319 - INFO - Tr_Loss: 1.1791, val_loss: 1.2670, Tr_acc: 61.229000884173296, val_ac: 53.608247422680414
-2025-02-23 17:22:04,641 - INFO - Tr_Loss: 1.1607, val_loss: 1.2535, Tr_acc: 62.68788682581786, val_ac: 53.91752577319588
-2025-02-23 17:22:04,958 - INFO - Tr_Loss: 1.1444, val_loss: 1.2406, Tr_acc: 61.715296198054816, val_ac: 54.329896907216494
-2025-02-23 17:22:05,286 - INFO - Tr_Loss: 1.1164, val_loss: 1.2281, Tr_acc: 63.8815207780725, val_ac: 54.63917525773196
-2025-02-23 17:22:05,625 - INFO - Tr_Loss: 1.1041, val_loss: 1.2163, Tr_acc: 63.793103448275865, val_ac: 55.05154639175258
-2025-02-23 17:22:05,942 - INFO - Tr_Loss: 1.0820, val_loss: 1.2049, Tr_acc: 66.13616268788682, val_ac: 55.154639175257735
-2025-02-23 17:22:06,263 - INFO - Tr_Loss: 1.0673, val_loss: 1.1938, Tr_acc: 65.73828470380195, val_ac: 54.94845360824742
-2025-02-23 17:22:06,578 - INFO - Tr_Loss: 1.0503, val_loss: 1.1833, Tr_acc: 66.79929266136163, val_ac: 55.154639175257735
-2025-02-23 17:22:06,888 - INFO - Tr_Loss: 1.0322, val_loss: 1.1732, Tr_acc: 67.1971706454465, val_ac: 55.05154639175258
-2025-02-23 17:22:07,204 - INFO - Tr_Loss: 1.0235, val_loss: 1.1635, Tr_acc: 67.41821396993811, val_ac: 55.670103092783506
-2025-02-23 17:22:07,513 - INFO - Tr_Loss: 1.0049, val_loss: 1.1542, Tr_acc: 67.816091954023, val_ac: 55.97938144329897
-2025-02-23 17:22:07,827 - INFO - Tr_Loss: 0.9860, val_loss: 1.1452, Tr_acc: 69.00972590627764, val_ac: 56.391752577319586
-2025-02-23 17:22:08,146 - INFO - Tr_Loss: 0.9686, val_loss: 1.1367, Tr_acc: 69.89389920424404, val_ac: 56.391752577319586
-2025-02-23 17:22:08,472 - INFO - Tr_Loss: 0.9612, val_loss: 1.1283, Tr_acc: 69.67285587975243, val_ac: 56.391752577319586
-2025-02-23 17:22:08,794 - INFO - Tr_Loss: 0.9470, val_loss: 1.1203, Tr_acc: 70.38019451812555, val_ac: 56.70103092783505
-2025-02-23 17:22:09,112 - INFO - Tr_Loss: 0.9384, val_loss: 1.1127, Tr_acc: 70.29177718832891, val_ac: 57.21649484536083
-2025-02-23 17:22:09,429 - INFO - Tr_Loss: 0.9156, val_loss: 1.1054, Tr_acc: 71.61803713527851, val_ac: 57.52577319587629
-2025-02-23 17:22:09,742 - INFO - Tr_Loss: 0.9057, val_loss: 1.0984, Tr_acc: 72.54641909814323, val_ac: 57.7319587628866
-2025-02-23 17:22:10,079 - INFO - Tr_Loss: 0.8976, val_loss: 1.0918, Tr_acc: 71.75066312997347, val_ac: 58.04123711340206
-2025-02-23 17:22:10,409 - INFO - Tr_Loss: 0.8824, val_loss: 1.0853, Tr_acc: 72.236958443855, val_ac: 58.144329896907216
-2025-02-23 17:22:10,729 - INFO - Tr_Loss: 0.8691, val_loss: 1.0789, Tr_acc: 73.69584438549956, val_ac: 58.65979381443299
-2025-02-23 17:22:11,044 - INFO - Tr_Loss: 0.8611, val_loss: 1.0730, Tr_acc: 73.25375773651636, val_ac: 58.76288659793814
-2025-02-23 17:22:11,369 - INFO - Tr_Loss: 0.8442, val_loss: 1.0674, Tr_acc: 74.447391688771, val_ac: 58.865979381443296
-2025-02-23 17:22:11,706 - INFO - Tr_Loss: 0.8323, val_loss: 1.0620, Tr_acc: 74.71264367816092, val_ac: 59.381443298969074
-2025-02-23 17:22:12,026 - INFO - Tr_Loss: 0.8315, val_loss: 1.0568, Tr_acc: 73.51900972590627, val_ac: 59.381443298969074
-2025-02-23 17:22:12,342 - INFO - Tr_Loss: 0.8149, val_loss: 1.0515, Tr_acc: 75.15473032714412, val_ac: 59.27835051546392
-2025-02-23 17:22:12,646 - INFO - Tr_Loss: 0.8069, val_loss: 1.0467, Tr_acc: 75.41998231653405, val_ac: 59.48453608247423
-2025-02-23 17:22:12,957 - INFO - Tr_Loss: 0.7971, val_loss: 1.0424, Tr_acc: 76.17152961980548, val_ac: 59.69072164948454
-2025-02-23 17:22:13,267 - INFO - Tr_Loss: 0.7794, val_loss: 1.0381, Tr_acc: 76.30415561450044, val_ac: 59.896907216494846
-2025-02-23 17:22:13,578 - INFO - Tr_Loss: 0.7766, val_loss: 1.0338, Tr_acc: 76.83465959328028, val_ac: 60.103092783505154
-2025-02-23 17:22:13,890 - INFO - Tr_Loss: 0.7687, val_loss: 1.0296, Tr_acc: 77.27674624226348, val_ac: 60.0
-2025-02-23 17:22:14,203 - INFO - Tr_Loss: 0.7551, val_loss: 1.0258, Tr_acc: 76.96728558797524, val_ac: 60.0
-2025-02-23 17:22:14,518 - INFO - Tr_Loss: 0.7538, val_loss: 1.0222, Tr_acc: 77.23253757736516, val_ac: 60.103092783505154
-2025-02-23 17:22:14,831 - INFO - Tr_Loss: 0.7394, val_loss: 1.0187, Tr_acc: 77.58620689655173, val_ac: 60.51546391752577
-2025-02-23 17:22:15,144 - INFO - Tr_Loss: 0.7202, val_loss: 1.0153, Tr_acc: 79.17771883289124, val_ac: 60.30927835051546
-2025-02-23 17:22:15,451 - INFO - Tr_Loss: 0.7170, val_loss: 1.0120, Tr_acc: 78.64721485411141, val_ac: 60.41237113402062
-2025-02-23 17:22:15,757 - INFO - Tr_Loss: 0.7166, val_loss: 1.0090, Tr_acc: 78.24933687002653, val_ac: 60.824742268041234
-2025-02-23 17:22:16,066 - INFO - Tr_Loss: 0.7027, val_loss: 1.0061, Tr_acc: 79.0893015030946, val_ac: 60.92783505154639
-2025-02-23 17:22:16,374 - INFO - Tr_Loss: 0.6943, val_loss: 1.0032, Tr_acc: 79.04509283819628, val_ac: 61.134020618556704
-2025-02-23 17:22:16,688 - INFO - Tr_Loss: 0.6859, val_loss: 1.0003, Tr_acc: 80.06189213085764, val_ac: 61.34020618556701
-2025-02-23 17:22:16,992 - INFO - Tr_Loss: 0.6871, val_loss: 0.9976, Tr_acc: 79.17771883289124, val_ac: 61.54639175257732
-2025-02-23 17:22:17,304 - INFO - Tr_Loss: 0.6699, val_loss: 0.9952, Tr_acc: 79.973474801061, val_ac: 61.649484536082475
-2025-02-23 17:22:17,606 - INFO - Tr_Loss: 0.6598, val_loss: 0.9929, Tr_acc: 81.47656940760389, val_ac: 61.649484536082475
-2025-02-23 17:22:17,907 - INFO - Tr_Loss: 0.6486, val_loss: 0.9905, Tr_acc: 81.78603006189213, val_ac: 61.649484536082475
-2025-02-23 17:22:18,215 - INFO - Tr_Loss: 0.6486, val_loss: 0.9884, Tr_acc: 81.38815207780725, val_ac: 61.75257731958763
-2025-02-23 17:22:18,520 - INFO - Tr_Loss: 0.6351, val_loss: 0.9866, Tr_acc: 81.9186560565871, val_ac: 61.75257731958763
-2025-02-23 17:22:18,816 - INFO - Tr_Loss: 0.6286, val_loss: 0.9851, Tr_acc: 82.36074270557029, val_ac: 61.855670103092784
-2025-02-23 17:22:19,125 - INFO - Tr_Loss: 0.6286, val_loss: 0.9835, Tr_acc: 81.9186560565871, val_ac: 61.855670103092784
-2025-02-23 17:22:19,436 - INFO - Tr_Loss: 0.6160, val_loss: 0.9816, Tr_acc: 83.37754199823165, val_ac: 61.855670103092784
-2025-02-23 17:22:19,744 - INFO - Tr_Loss: 0.6147, val_loss: 0.9797, Tr_acc: 82.67020335985853, val_ac: 61.95876288659794
-2025-02-23 17:22:20,047 - INFO - Tr_Loss: 0.5982, val_loss: 0.9781, Tr_acc: 84.30592396109637, val_ac: 62.06185567010309
-2025-02-23 17:22:20,360 - INFO - Tr_Loss: 0.5910, val_loss: 0.9767, Tr_acc: 83.86383731211318, val_ac: 61.855670103092784
-2025-02-23 17:22:20,674 - INFO - Tr_Loss: 0.5864, val_loss: 0.9751, Tr_acc: 83.81962864721486, val_ac: 61.855670103092784
-2025-02-23 17:22:20,989 - INFO - Tr_Loss: 0.5845, val_loss: 0.9737, Tr_acc: 84.35013262599469, val_ac: 61.95876288659794
-2025-02-23 17:22:21,297 - INFO - Tr_Loss: 0.5752, val_loss: 0.9722, Tr_acc: 84.04067197170646, val_ac: 61.95876288659794
-2025-02-23 17:22:21,610 - INFO - Tr_Loss: 0.5703, val_loss: 0.9709, Tr_acc: 83.86383731211318, val_ac: 61.855670103092784
-2025-02-23 17:22:21,933 - INFO - Tr_Loss: 0.5620, val_loss: 0.9698, Tr_acc: 84.52696728558797, val_ac: 61.95876288659794
-2025-02-23 17:22:22,244 - INFO - Tr_Loss: 0.5615, val_loss: 0.9687, Tr_acc: 84.30592396109637, val_ac: 61.75257731958763
-2025-02-23 17:22:22,551 - INFO - Tr_Loss: 0.5414, val_loss: 0.9681, Tr_acc: 86.29531388152078, val_ac: 61.95876288659794
-2025-02-23 17:22:22,853 - INFO - Tr_Loss: 0.5535, val_loss: 0.9670, Tr_acc: 85.0132625994695, val_ac: 61.95876288659794
-2025-02-23 17:22:23,156 - INFO - Tr_Loss: 0.5396, val_loss: 0.9659, Tr_acc: 85.58797524314765, val_ac: 61.855670103092784
-2025-02-23 17:22:23,457 - INFO - Tr_Loss: 0.5308, val_loss: 0.9654, Tr_acc: 86.5605658709107, val_ac: 61.95876288659794
-2025-02-23 17:22:23,766 - INFO - Tr_Loss: 0.5213, val_loss: 0.9647, Tr_acc: 86.60477453580901, val_ac: 61.95876288659794
-2025-02-23 17:22:24,066 - INFO - Tr_Loss: 0.5163, val_loss: 0.9641, Tr_acc: 86.3395225464191, val_ac: 62.06185567010309
-2025-02-23 17:22:24,368 - INFO - Tr_Loss: 0.5172, val_loss: 0.9634, Tr_acc: 86.69319186560566, val_ac: 62.16494845360825
-2025-02-23 17:22:24,670 - INFO - Tr_Loss: 0.5078, val_loss: 0.9628, Tr_acc: 87.4447391688771, val_ac: 62.371134020618555
-2025-02-23 17:22:24,981 - INFO - Tr_Loss: 0.4964, val_loss: 0.9624, Tr_acc: 87.70999115826702, val_ac: 62.371134020618555
-2025-02-23 17:22:25,297 - INFO - Tr_Loss: 0.4917, val_loss: 0.9620, Tr_acc: 88.1078691423519, val_ac: 62.2680412371134
-2025-02-23 17:22:25,607 - INFO - Tr_Loss: 0.4891, val_loss: 0.9613, Tr_acc: 87.75419982316534, val_ac: 62.06185567010309
-2025-02-23 17:22:25,911 - INFO - Tr_Loss: 0.4835, val_loss: 0.9608, Tr_acc: 87.31211317418214, val_ac: 62.16494845360825
-2025-02-23 17:22:26,222 - INFO - Tr_Loss: 0.4807, val_loss: 0.9601, Tr_acc: 88.01945181255526, val_ac: 62.16494845360825
-2025-02-23 17:22:26,529 - INFO - Tr_Loss: 0.4705, val_loss: 0.9603, Tr_acc: 88.15207780725022, val_ac: 61.95876288659794
-2025-02-23 17:22:26,846 - INFO - Tr_Loss: 0.4700, val_loss: 0.9605, Tr_acc: 87.8868258178603, val_ac: 62.16494845360825
-2025-02-23 17:22:27,152 - INFO - Tr_Loss: 0.4651, val_loss: 0.9602, Tr_acc: 88.90362511052166, val_ac: 62.06185567010309
-2025-02-23 17:22:27,459 - INFO - Tr_Loss: 0.4625, val_loss: 0.9598, Tr_acc: 88.37312113174183, val_ac: 62.47422680412371
-2025-02-23 17:22:27,765 - INFO - Tr_Loss: 0.4573, val_loss: 0.9596, Tr_acc: 89.25729442970822, val_ac: 62.371134020618555
-2025-02-23 17:22:28,070 - INFO - Tr_Loss: 0.4451, val_loss: 0.9594, Tr_acc: 90.0972590627763, val_ac: 62.2680412371134
-2025-02-23 17:22:28,373 - INFO - Tr_Loss: 0.4388, val_loss: 0.9594, Tr_acc: 89.56675508399647, val_ac: 62.16494845360825
-2025-02-23 17:22:28,682 - INFO - Tr_Loss: 0.4285, val_loss: 0.9593, Tr_acc: 90.05305039787798, val_ac: 62.16494845360825
-2025-02-23 17:22:28,989 - INFO - Tr_Loss: 0.4314, val_loss: 0.9592, Tr_acc: 89.74358974358974, val_ac: 62.16494845360825
-2025-02-23 17:22:29,296 - INFO - Tr_Loss: 0.4259, val_loss: 0.9593, Tr_acc: 90.62776304155615, val_ac: 62.16494845360825
-2025-02-23 17:22:29,618 - INFO - Tr_Loss: 0.4214, val_loss: 0.9593, Tr_acc: 90.0972590627763, val_ac: 62.06185567010309
-2025-02-23 17:22:29,924 - INFO - Tr_Loss: 0.4167, val_loss: 0.9590, Tr_acc: 90.71618037135279, val_ac: 61.95876288659794
-2025-02-23 17:22:30,227 - INFO - Tr_Loss: 0.4058, val_loss: 0.9592, Tr_acc: 91.42351900972591, val_ac: 62.06185567010309
-2025-02-23 17:22:30,545 - INFO - Tr_Loss: 0.3971, val_loss: 0.9594, Tr_acc: 91.73297966401415, val_ac: 62.06185567010309
-2025-02-23 17:22:30,546 - INFO - Saving trained model and training results...
-2025-02-23 17:22:30,806 - INFO - Starting model evaluation...
-2025-02-23 17:22:30,824 - INFO - Test Loss: 0.9367
-2025-02-23 17:22:30,824 - INFO - Test Accuracy: 65.60%
-2025-02-23 17:22:30,825 - INFO - ======== Model Training Completed! ========
+2025-02-24 09:05:58,645 - INFO - Starting training for 60 epochs...
+2025-02-24 09:06:01,702 - INFO - Tr_Loss: 1.6124, val_loss: 1.6333, Tr_acc: 20.912052117263844, val_ac: 12.345679012345679

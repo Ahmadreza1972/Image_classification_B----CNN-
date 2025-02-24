@@ -4,7 +4,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
-from mobilenet import MobileNetV2ForCIFAR8M
+from CNN import CNNModel
 from DataLoad import DataLoad
 from tqdm import tqdm
 import numpy as np
@@ -48,10 +48,13 @@ class ModelProcess:
         self._width_transform=self._config1.hyperparameters["width_transform"]
         self._height_transform=self._config1.hyperparameters["height_transform"]
         self._drop_out=self._config1.hyperparameters["drop_out"]
+        self._conv_layers_arch=self._config1.hyperparameters["conv_Arch"]
+        self._fc__Arch=self._config1.hyperparameters["fc__Arch"]
         
         # set parameters
         self._num_classes=self._config1.model_parameters["num_classes"]
         self._device=self._config1.model_parameters["device"]
+        self._input_chanels=self._config1.model_parameters["input_chanels"]
         self._results = pd.DataFrame(columns=["True label"])
         self._orginal_labels=[[173, 137, 34, 159, 201],[34, 202, 80, 135, 24],[173, 202, 130, 124, 125]]
 
@@ -163,13 +166,13 @@ class ModelProcess:
 
         # Initialize model
         self._log.log("Initializing the model...")
-        model=MobileNetV2ForCIFAR8M(self._num_classes,self._height_transform,self._width_transform,self._drop_out)
+        model = CNNModel(self._input_chanels,self._num_classes,self._conv_layers_arch,self._fc__Arch,self._device,0,self._drop_out)
         
         for id,path in enumerate(self._models_weights_path):
         
-            model.load_state_dict(torch.load(path))
+            model.load_state_dict(torch.load(path), strict=False)
             model.eval()
-            accuracy, probabilities, pr_label, tr_label =self.get_predictions_and_probabilities(model, self._orginal_labels[id],self._dataloader, device='cpu')
+            accuracy, probabilities, pr_label, tr_label =self.get_predictions_and_probabilities(model, self._orginal_labels[id],self._dataloader, device=self._device)
             if id==0:
                 self._results["True label"]=tr_label
                 

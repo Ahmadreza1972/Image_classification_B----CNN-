@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import matplotlib.pyplot as plt
-from mobilenet import MobileNetV2ForCIFAR8M
+from CNN import CNNModel
 from DataLoad import DataLoad
 from train import Train
 from test import Test
@@ -33,11 +33,14 @@ class ModelProcess:
         self._valdata_ratio=self._config1.hyperparameters["valdata_ratio"]
         self._width_transform=self._config1.hyperparameters["width_transform"]
         self._height_transform=self._config1.hyperparameters["height_transform"]
-        self._drop_out=self._config1.hyperparameters["drop_out"]        
+        self._drop_out=self._config1.hyperparameters["drop_out"]
+        self._conv_layers_arch=self._config1.hyperparameters["conv_Arch"]
+        self._fc__Arch=self._config1.hyperparameters["fc__Arch"]        
         
         # set parameters
         self._num_classes=self._config1.model_parameters["num_classes"]
         self._device=self._config1.model_parameters["device"]
+        self._input_chanels=self._config1.model_parameters["input_chanels"]
 
     def save_result(self,model,tr_ac,val_ac,tr_los,val_los):
         
@@ -74,7 +77,7 @@ class ModelProcess:
 
         # Initialize model
         self._log.log("Initializing the model...")
-        model=MobileNetV2ForCIFAR8M(self._num_classes,self._height_transform,self._width_transform,self._drop_out)
+        model = CNNModel(self._input_chanels,self._num_classes,self._conv_layers_arch,self._fc__Arch,self._device,0.001,self._drop_out)
         trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
         self._log.log(f"Model initialized with {trainable_params:,} trainable parameters.")
 

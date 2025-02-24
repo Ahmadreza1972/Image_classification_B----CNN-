@@ -36,10 +36,21 @@ class Config:
         self._width_transform=64
         self._height_transform=64
         self._dropout=0.5
+        self._conv_Arch = [
+        {"out_channels": 64, "kernel_size": 3, "stride": 1, "padding": 1, "maxpool": 0},
+        {"out_channels": 128, "kernel_size": 3, "stride": 1, "padding": 1, "maxpool": 2},
+        {"out_channels": 256, "kernel_size": 3, "stride": 1, "padding": 1, "maxpool": 2},
+        {"out_channels": 512, "kernel_size": 3, "stride": 1, "padding": 1, "maxpool": 2},
+        {"out_channels": 512, "kernel_size": 3, "stride": 1, "padding": 1, "maxpool": 2},
+        {"out_channels": 512, "kernel_size": 3, "stride": 1, "padding": 1, "maxpool": 2},
+        ]
+        self._fc__Arch = [ 512, 128,32]
+
 
     def _set_model_parameters(self):
         """Define model-specific parameters."""
         self._NUM_CLASSES = 5
+        self.__INPUT_CHANEL=3
         
     def _set_device(self):
         """Check for CUDA (GPU)"""
@@ -71,7 +82,9 @@ class Config:
             "valdata_ratio": self._valdata_ratio,
             "height_transform": self._height_transform,
             "width_transform": self._width_transform,
-            "drop_out":self._dropout
+            "drop_out":self._dropout,
+            "conv_Arch":self._conv_Arch,
+            "fc__Arch":self._fc__Arch
         }
 
     @property
@@ -79,5 +92,6 @@ class Config:
         """Return a dictionary of model parameters."""
         return {
             "num_classes": self._NUM_CLASSES,
-            "device":self._DEVICE
+            "device":self._DEVICE,
+            "input_chanels":self.__INPUT_CHANEL
         }
