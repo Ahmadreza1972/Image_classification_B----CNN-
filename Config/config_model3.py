@@ -24,19 +24,19 @@ class Config:
     def _set_hyperparameters(self):
         """Define all hyperparameters."""
         self._batch_size = 128
-        self._learning_rate = 0.0005
+        self._learning_rate = 0.00001
         self._epochs = 60
         self._valdata_ratio = 0.05
         self._width_transform=64
         self._height_transform=64
-        self._dropout=0.55
+        self._dropout=0.7
         self._conv_Arch = [
         {"out_channels": 64, "kernel_size": 3, "stride": 1, "padding": 1, "maxpool": 0},
         {"out_channels": 128, "kernel_size": 3, "stride": 1, "padding": 1, "maxpool": 2},
         {"out_channels": 256, "kernel_size": 3, "stride": 1, "padding": 1, "maxpool": 2},
         {"out_channels": 512, "kernel_size": 3, "stride": 1, "padding": 1, "maxpool": 2},
-        {"out_channels": 512, "kernel_size": 3, "stride": 1, "padding": 1, "maxpool": 2},
-        {"out_channels": 512, "kernel_size": 3, "stride": 1, "padding": 1, "maxpool": 2},
+        {"out_channels": 512, "kernel_size": 3, "stride": 1, "padding": 1, "maxpool": 2}#,
+        #{"out_channels": 512, "kernel_size": 3, "stride": 1, "padding": 1, "maxpool": 2},
         ]
         self._fc__Arch = [ 512, 128,32]
         

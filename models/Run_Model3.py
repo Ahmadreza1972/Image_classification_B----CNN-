@@ -77,7 +77,7 @@ class ModelProcess:
 
         # Initialize model
         self._log.log("Initializing the model...")
-        model = CNNModel(self._input_chanels,self._num_classes,self._conv_layers_arch,self._fc__Arch,self._device,0.001,self._drop_out)
+        model = CNNModel(self._input_chanels,self._num_classes,self._conv_layers_arch,self._fc__Arch,self._device,0,self._drop_out)
         trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
         self._log.log(f"Model initialized with {trainable_params:,} trainable parameters.")
 
